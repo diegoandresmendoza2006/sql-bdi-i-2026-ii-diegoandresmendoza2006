@@ -1,0 +1,89 @@
+Table faculties {
+  faculty_id INT [primary key]
+  name VARCHAR(45) [not null]
+}
+
+Table programs {
+  program_id INT [primary key]
+  name VARCHAR(45) [not null]
+  faculty_id INT [not null]
+}
+
+Table courses {
+  course_id INT [primary key]
+  name VARCHAR(45) [not null]
+  faculty_id INT [not null]
+}
+
+Table courses_programs {
+  course_program_id INT [primary key]
+  semester INT [not null]
+  course_id INT [not null]
+  program_id INT [not null]
+}
+
+Table courses_calendar {
+  course_calendar_id INT [primary key]
+  quota VARCHAR(45)
+  course_id INT [not null]
+  classroom_id INT [not null]
+  schedule_id INT [not null]
+}
+
+Table courses_students {
+  course_student_id INT [primary key]
+  course_calendar INT [not null]
+  user_id INT [not null]
+}
+
+Table programs_students {
+  program_student_id INT [primary key]
+  program_id INT [not null]
+  user_id INT [not null]
+}
+
+Table users {
+  user_id INT [primary key]
+  name VARCHAR(45) [not null]
+  last_name VARCHAR(45) [not null]
+  semester INT
+  rol_id INT [not null]
+}
+
+Table roles {
+  rol_id INT [primary key]
+  name VARCHAR(45) [not null]
+}
+
+Table schedules {
+  schedule_id INT [primary key]
+  start_time VARCHAR(45) [not null]
+  end_time VARCHAR(45) [not null]
+  day VARCHAR(45) [not null]
+}
+
+Table buildings {
+  building_id INT [primary key]
+  name VARCHAR(45) [not null]
+}
+
+Table classrooms {
+  classroom_id INT [primary key]
+  name VARCHAR(45) [not null]
+  building_id INT [not null]
+}
+
+// RELACIONES
+Ref: programs.faculty_id > faculties.faculty_id
+Ref: courses.faculty_id > faculties.faculty_id
+Ref: courses_programs.course_id > courses.course_id
+Ref: courses_programs.program_id > programs.program_id
+Ref: courses_calendar.course_id > courses.course_id
+Ref: courses_calendar.classroom_id > classrooms.classroom_id
+Ref: courses_calendar.schedule_id > schedules.schedule_id
+Ref: courses_students.course_calendar > courses_calendar.course_calendar_id
+Ref: courses_students.user_id > users.user_id
+Ref: programs_students.program_id > programs.program_id
+Ref: programs_students.user_id > users.user_id
+Ref: users.rol_id > roles.rol_id
+Ref: classrooms.building_id > buildings.building_id

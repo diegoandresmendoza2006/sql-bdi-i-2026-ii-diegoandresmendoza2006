@@ -1,4 +1,4 @@
-INSERT INTO university.faculties (faculty) VALUES
+INSERT INTO university.faculties (name) VALUES
 ('Facultad de Artes y Humanidades'),
 ('Facultad de Ciencias Agrarias'),
 ('Facultad de Ciencias Básicas'),

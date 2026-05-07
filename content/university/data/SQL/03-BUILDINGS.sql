@@ -1,20 +1,6 @@
-INSERT INTO university.buildings (name) VALUES
-('Bloque Gramalote'),
-('Bloque Nuevo'),
-('Bloque Toledo'),
-('Bloque Zulia '),
-('Camilo Daza'),
-('Campus Casona'),
-('Campus Club Comercio'),
-('Campus Cread Cúcuta'),
-('Campus Edificio de Comunicación Social'),
-('Campus Facultad de Salud'),
-('Campus Villa del Rosario'),
-('Campus Virgen del Rosario'),
-('Eduardo Cote Lamus'),
-('Francisco José de Caldas'),
-('Francisco de Paula Santander'),
-('Gimnasio'),
-('Jorge Gaitán Durán'),
-('Marco Fidel Suarez'),
-('Simón Bolivar');
+INSERT INTO university.buildings (building_id,name) VALUES
+(1, 'Bloque A - Ingenierías'),
+(2, 'Bloque B - Ciencias Básicas'),
+(3, 'Bloque C - Humanidades'),
+(4, 'Bloque D - Administración'),
+(5, 'Centro de Cómputo');
